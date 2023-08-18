@@ -65,17 +65,17 @@ final class PosterViewController: UIViewController {
 //
 //                self?.callRecommendation(
 //                    id: 976573,
-//                    completionHander: { [weak self] data in
+//                    completionHander: { data in
 //                        self?.secondList = data
 //
 //                        self?.callRecommendation(
 //                            id: 569094,
-//                            completionHander: { [weak self] data in
+//                            completionHander: { data in
 //                                self?.thirdList = data
 //
 //                                self?.callRecommendation(
 //                                    id: 447365,
-//                                    completionHander: { [weak self] data in
+//                                    completionHander: { data in
 //                                        self?.fourthList = data
 //                                        self?.posterCollectionView.reloadData()
 //                                    }
@@ -111,6 +111,13 @@ final class PosterViewController: UIViewController {
         group.notify(queue: .main, execute: { [weak self] in
             self?.posterCollectionView.reloadData()
         })
+        
+        for item in UIFont.familyNames {
+            print("===== \(item) =====")
+            for name in UIFont.fontNames(forFamilyName: item) {
+                print("\(name)")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -222,6 +229,9 @@ extension PosterViewController: UICollectionViewDataSource {
             else {
                 return UICollectionReusableView()
             }
+            
+            view.titleLabel.text = "테스트 섹션!!"
+            view.titleLabel.font = UIFont(name: "GmarketSansTTFBold", size: 32.0)
             
             return view
             
