@@ -19,6 +19,8 @@ protocol CollectionViewAttributedProtocol {
 
 final class PosterViewController: UIViewController {
     
+    @IBOutlet var notiButton: UIButton!
+    
     private var list: Recommendation = Recommendation(
         totalResults: 0,
         page: 0,
@@ -44,7 +46,7 @@ final class PosterViewController: UIViewController {
         results: []
     )
     
-    private var movieIDs: [Int] = [447365, 569094, 976573, 872585]
+    private var movieIDs: [Int] = [671, 672, 673, 674]
     
     @IBOutlet var posterCollectionView: UICollectionView!
     
@@ -88,36 +90,43 @@ final class PosterViewController: UIViewController {
 //        )
     
         let group = DispatchGroup()
-        for (index, id) in movieIDs.enumerated()   {
-            group.enter()
+        for (index, id) in movieIDs.enumerated() {
             
-            callRecommendation(id: id, completionHander: { [weak self] recommendation in
-                switch index {
-                case 0:
-                    self?.list = recommendation
-                case 1:
-                    self?.secondList = recommendation
-                case 2:
-                    self?.thirdList = recommendation
-                case 3:
-                    self?.fourthList = recommendation
-                default:
-                    break
-                }
-                group.leave()
-            })
+            group.enter()
+            callRecommendation(
+                id: id,
+                completionHander: { [weak self] recommendation in
+                    
+                    switch index {
+                    case 0:
+                        self?.list = recommendation
+                    case 1:
+                        self?.secondList = recommendation
+                    case 2:
+                        self?.thirdList = recommendation
+                    case 3:
+                        self?.fourthList = recommendation
+                    default:
+                        break
+                    }
+                    
+                    group.leave()
+                })
         }
         
-        group.notify(queue: .main, execute: { [weak self] in
-            self?.posterCollectionView.reloadData()
-        })
-        
-        for item in UIFont.familyNames {
-            print("===== \(item) =====")
-            for name in UIFont.fontNames(forFamilyName: item) {
-                print("\(name)")
+        group.notify(
+            queue: .main,
+            execute: { [weak self] in
+                self?.posterCollectionView.reloadData()
             }
-        }
+        )
+        
+//        for item in UIFont.familyNames {
+//            print("===== \(item) =====")
+//            for name in UIFont.fontNames(forFamilyName: item) {
+//                print("\(name)")
+//            }
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -132,6 +141,40 @@ final class PosterViewController: UIViewController {
 //                self?.posterCollectionView.backgroundColor = .lightGray
 //            }
 //        )
+    }
+    
+    
+    @IBAction func sendNotification(_ sender: UIButton) {
+        
+        // 포그라운드에서 알림이 안뜨는게 디폴트
+        //
+        
+        // 1. 컨텐츠 2. 언제 => 알림 보내!!
+        let content = UNMutableNotificationContent()
+        
+        content.title = "다마고치에게 \(Int.random(in: 10...30)) 모금 물을 주세여"
+        content.body = "아직 레벨 3이에요. 물을 주세요"
+        content.badge = 100
+        
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 86400,
+            repeats: false
+        )
+        let request = UNNotificationRequest(
+            identifier: "\(Date())",
+            content: content,
+            trigger: trigger
+        )
+        UNUserNotificationCenter
+            .current()
+            .add(
+                request,
+                withCompletionHandler: { error in
+                    if let error = error {
+                        print(error)
+                    }
+                }
+            )
     }
     
     // 오펜하이머 872585

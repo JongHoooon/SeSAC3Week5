@@ -171,7 +171,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bcT-rg-lcq">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="259" width="393" height="559"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AYc-sp-Bhz">
                                     <size key="itemSize" width="128" height="128"/>
@@ -190,17 +190,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g85-bz-cPD">
+                                <rect key="frame" x="159" y="131" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="sendNotification:" destination="XwH-He-0w1" eventType="touchUpInside" id="oKV-ru-jFb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tt3-Jq-pG1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tt3-Jq-pG1" firstAttribute="trailing" secondItem="bcT-rg-lcq" secondAttribute="trailing" id="82k-X3-rKI"/>
-                            <constraint firstItem="bcT-rg-lcq" firstAttribute="top" secondItem="tt3-Jq-pG1" secondAttribute="top" id="EEe-Zu-wjg"/>
+                            <constraint firstItem="bcT-rg-lcq" firstAttribute="top" secondItem="tt3-Jq-pG1" secondAttribute="top" constant="200" id="EEe-Zu-wjg"/>
                             <constraint firstItem="tt3-Jq-pG1" firstAttribute="bottom" secondItem="bcT-rg-lcq" secondAttribute="bottom" id="Ork-4F-ugV"/>
                             <constraint firstItem="bcT-rg-lcq" firstAttribute="leading" secondItem="tt3-Jq-pG1" secondAttribute="leading" id="iBO-io-93V"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="notiButton" destination="g85-bz-cPD" id="pAc-Qs-wr4"/>
                         <outlet property="posterCollectionView" destination="bcT-rg-lcq" id="gPA-6K-cMn"/>
                     </connections>
                 </viewController>

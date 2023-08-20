@@ -16,7 +16,41 @@ class GCDBasicViewController: UIViewController {
 //        serialAsync()
 //        globalSync()
 //        globalAsync()
-        globalAsyncTwo()
+//        globalAsyncTwo()
+        dispatchGroup()
+    }
+    
+    func dispatchGroup() {
+        
+        let group = DispatchGroup()
+        
+        DispatchQueue.global(qos: .userInteractive).async(group: group) {
+            for i in 1...100 {
+                print(i, terminator: " ")
+            }
+        }
+        DispatchQueue.global(qos: .background).async(group: group) {
+            for i in 101...200 {
+                print(i, terminator: " ")
+            }
+        }
+        DispatchQueue.global(qos: .background).async(group: group) {
+            for i in 201...300 {
+                print(i, terminator: " ")
+            }
+        }
+        DispatchQueue.global(qos: .background).async(group: group) {
+            for i in 301...400 {
+                print(i, terminator: " ")
+            }
+        }
+        
+        group.notify(
+            queue: .main,
+            execute: {
+                print("=====끝=====")
+            }
+        )
     }
     
     func serialSync() {
