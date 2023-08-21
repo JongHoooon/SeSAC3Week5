@@ -50,11 +50,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
+    // 포그라운드 => 1:1 채팅 / 다른 방에서 알림만 온다 / 
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
+            // 특정 화면, 특정 조건에서만 포그라운드 알림 받기,
+            // 특정 화면에서는 알림 안받기
             completionHandler([.sound, .badge, .banner, .list])
     }
+    
+    // 특정 푸시 클릭하면 특정 화면으로 이동
+    // 로컬 알림 갯수 제한: 64개 제한 (identifier)
+    // 카톡은?? 포그라운드로 켜는 순간, 등록되어 있던 모든 알림들 제거
+    //
+    // 잔디는 다 사라지지는 않음
+    
 }

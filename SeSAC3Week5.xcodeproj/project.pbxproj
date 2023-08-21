@@ -24,6 +24,7 @@
 		ED2AE6C62A8C750300D26F9E /* PosterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2AE6C42A8C750300D26F9E /* PosterCollectionViewCell.xib */; };
 		ED2AE6C92A8C754000D26F9E /* HeaderPosterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2AE6C72A8C754000D26F9E /* HeaderPosterCollectionReusableView.swift */; };
 		ED2AE6CA2A8C754000D26F9E /* HeaderPosterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2AE6C82A8C754000D26F9E /* HeaderPosterCollectionReusableView.xib */; };
+		ED4BD0472A92F50D009C81EC /* SeSACButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4BD0462A92F50D009C81EC /* SeSACButton.swift */; };
 		EDA010BC2A8C7784006BA052 /* PosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA010BB2A8C7784006BA052 /* PosterViewController.swift */; };
 		EDB0FA1D2A8DA32100861AC1 /* Extension+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0FA1C2A8DA32100861AC1 /* Extension+Alert.swift */; };
 		EDB0FA202A8DAB8900861AC1 /* LottoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0FA1F2A8DAB8900861AC1 /* LottoManager.swift */; };
@@ -55,6 +56,7 @@
 		ED2AE6C42A8C750300D26F9E /* PosterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED2AE6C72A8C754000D26F9E /* HeaderPosterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPosterCollectionReusableView.swift; sourceTree = "<group>"; };
 		ED2AE6C82A8C754000D26F9E /* HeaderPosterCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderPosterCollectionReusableView.xib; sourceTree = "<group>"; };
+		ED4BD0462A92F50D009C81EC /* SeSACButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACButton.swift; sourceTree = "<group>"; };
 		EDA010BB2A8C7784006BA052 /* PosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewController.swift; sourceTree = "<group>"; };
 		EDB0FA1C2A8DA32100861AC1 /* Extension+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Alert.swift"; sourceTree = "<group>"; };
 		EDB0FA1F2A8DAB8900861AC1 /* LottoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoManager.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				041AE3D02A899B28007724AE /* ViewController.swift */,
 				ED0729F52A8C4B1700D39001 /* CodableViewController.swift */,
 				041AE3D22A899B28007724AE /* Main.storyboard */,
+				ED4BD0462A92F50D009C81EC /* SeSACButton.swift */,
 				041AE3D52A899B29007724AE /* Assets.xcassets */,
 				041AE3D72A899B29007724AE /* LaunchScreen.storyboard */,
 				041AE3DA2A899B29007724AE /* Info.plist */,
@@ -265,6 +268,7 @@
 				EDB0FA2A2A8DE2EB00861AC1 /* Weather.swift in Sources */,
 				041AE3E92A89A265007724AE /* GCDBasicViewController.swift in Sources */,
 				EDB0FA1D2A8DA32100861AC1 /* Extension+Alert.swift in Sources */,
+				ED4BD0472A92F50D009C81EC /* SeSACButton.swift in Sources */,
 				ED0729F62A8C4B1700D39001 /* CodableViewController.swift in Sources */,
 				EDA010BC2A8C7784006BA052 /* PosterViewController.swift in Sources */,
 				041AE3E42A899D2C007724AE /* APIKey.swift in Sources */,
